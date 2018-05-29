@@ -7,8 +7,10 @@
 #     conf:
 #       account: {{ cluster.name }}
 
-- domain: {{ cluster.name }}.hasura.me
-  ssl: null
+- domain: {{ cluster.name }}.hasura-app.io
+  ssl:
+    type: LetsEncrypt
+    conf: {}
 
 # Point your own domain to the IP of the cluster and add the domain here
 # Example configuration for domain with free SSL certs from LetsEncypt
