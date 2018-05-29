@@ -2,5 +2,18 @@ clusters:
 - alias: hasura
   data: null
   infra:
-    provider: hasura-free
+    nodes:
+    - labels:
+        app: postgres
+      type: s-2vcpu-4gb
+    provider: digital-ocean
+    region: blr1
+    version: v1
+    volumes:
+    - name: postgres
+      size: 10
+    - name: filestore
+      size: 1
+    - name: sessionstore
+      size: 1
 version: v1

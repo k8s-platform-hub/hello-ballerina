@@ -1,0 +1,10 @@
+clusters:
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: hasura
+  data: null
+  kubeContext: stiffness72
+  name: stiffness72
+defaultCluster: ""
+isQuickStart: ""
