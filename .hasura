@@ -4,7 +4,7 @@ clusters:
     configmap: controller-conf
     namespace: hasura
   data: null
-  kubeContext: stiffness72
-  name: stiffness72
+  kubeContext: responsiveness92
+  name: responsiveness92
 defaultCluster: ""
 isQuickStart: ""
