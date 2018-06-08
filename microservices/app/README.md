@@ -48,7 +48,7 @@ You can add a package by mentioning it in the `Dockerfile`, by using the `apk` t
 Read this section if you already have a Ballerina app and want to deploy it on Hasura.
 
 - Replace the contents of `src/` directory with your own app's Ballerina files.
-- Leave `k8s.yaml`, `Dockerfile` and `conf/` as it is.
+- Leave `k8s.yaml`, and `Dockerfile` as it is.
 - If there are any Ballerina dependencies, add and configure them in `Dockerfile` (see [above](#add-a-ballerina-dependency)).
 - If there are any system dependencies, add and configure them in `Dockerfile` (see [above](#add-a-system-dependency)).
 
