@@ -1,5 +1,5 @@
 clusters:
-- alias: hasura
+- alias: prod
   config:
     configmap: controller-conf
     namespace: hasura
