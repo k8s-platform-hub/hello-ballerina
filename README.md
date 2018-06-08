@@ -39,20 +39,7 @@ Hasura makes it easy to add backend features to your python apps.
   -  Or use data APIs directly from the client-side code
 - Add file upload/download features using Hasura's file APIs with customisable permissions to configure sharing
 
-You can use Hasura APIs from your client side javascript directly, or from your Ballerina code.
-Open your app and head to the different example routes:
-
-```
-# Open your app in a browser
-$ hasura microservice open app
-
-# Head to any of these URLs on the app
-/examples/data
-/examples/auth
-/examples/filestore
-```
-
-Read more about Hasura [data](https://hasura.io/features/data), [auth](https://hasura.io/features/auth) & [filestore](https://hasura.io/features/filestore) APIs. They are powerful and can help you save a lot of time and code when building out your applications.
+You can use Hasura APIs from your client side javascript directly, or from your Ballerina code. Read more about Hasura [data](https://hasura.io/features/data), [auth](https://hasura.io/features/auth) & [filestore](https://hasura.io/features/filestore) APIs. They are powerful and can help you save a lot of time and code when building out your applications.
 
 ### API console
 
@@ -127,7 +114,7 @@ You can add a package by mentioning it in the `Dockerfile`, by using the `apk` t
 Read this section if you already have a Ballerina app and want to deploy it on Hasura.
 
 - Replace the contents of `src/` directory with your own app's Ballerina files.
-- Leave `k8s.yaml`, `Dockerfile` and `conf/` as it is.
+- Leave `k8s.yaml`, and `Dockerfile` as it is.
 - If there are any Ballerina dependencies, add and configure them in `Dockerfile` (see [above](#add-a-ballerina-dependency)).
 - If there are any system dependencies, add and configure them in `Dockerfile` (see [above](#add-a-system-dependency)).
 
@@ -147,17 +134,19 @@ before.
 #### Ballerina app running on the cluster (after deployment)
 Example endpoints:
 ```
-if not os.getenv('DEVELOPMENT'):
-  postgres = 'postgres.hasura' #postgres)
-  dataUrl  = 'data.hasura'     #Hasura data APIs)
+if system:getEnv("PRODUCTION") {
+  postgres = "postgres.hasura:5432"
+  dataUrl  = "data.hasura:80"
+}
 ```
 
 #### Ballerina app running locally (during dev or testing)
 Example endpoints:
 ```
-else:
-  postgres = 'localhost:5432' #postgres)
-  dataUrl  = 'localhost:9000' #Hasura data APIs)
+if system:getEnv("DEVELOPMENT") {
+  postgres = "localhost:5432"
+  dataUrl  = "localhost:9000"
+}
 ```
 
 And in the background, you will have to expose your Hasura microservices on these ports locally:
