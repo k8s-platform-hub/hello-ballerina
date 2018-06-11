@@ -19,7 +19,7 @@ service<http:Service> hello bind { port: 9090 } {
     http:Response response = new;
 
     // Objects have function calls.
-    response.setTextPayload("Hello Ballerina!\n");
+    response.setTextPayload("Hello Ballerina with Hasura!\n");
 
     // Send a response back to caller.
     // Errors are ignored with '_'.
