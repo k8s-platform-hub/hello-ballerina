@@ -1,5 +1,5 @@
 clusters:
-- alias: hasura
+- alias: prod
   data: null
   infra:
     nodes:
