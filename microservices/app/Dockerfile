@@ -1,4 +1,4 @@
-FROM ballerina/ballerina-platform:0.971.0
+FROM ballerina/ballerina-platform:latest
 # copy the source code
 COPY src /home/ballerina
 # run the executable
