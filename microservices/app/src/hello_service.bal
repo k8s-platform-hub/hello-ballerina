@@ -8,12 +8,12 @@ import ballerina/io;
 // is accessible at '/hello', and bound to a the listener on
 // port 9090. `http:Service`is a connector in the `http`
 // package.
-service<http:Service> hello bind { port: 9090 } {
+service hello on new http:Listener(9090) {
 
   // A resource is an invokable API method.
   // Accessible at '/hello/sayHello’.
   // 'caller' is the client invoking this resource.
-  sayHello (endpoint caller, http:Request request) {
+  resource function sayHello(http:Caller caller, http:Request request) {
 
     // Create object to carry data back to caller.
     http:Response response = new;
